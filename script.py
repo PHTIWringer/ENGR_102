@@ -122,6 +122,8 @@ def calculate_z_score(data, population):
     std_dev_data = stdev(data, mean_data)
     # change the [0] to any index from any of the lists to change z_score
     z_score_index = z_score(data[0], mean_data, std_dev_data)
+
+    # Will have to change "first" to whatever index we select.  Ex: data[3], we would have to change "first" to "fourth"
     print(f"The z_score for the first item in {population} is, {z_score_index}")
 
 calculate_z_score(population1, "population1")
