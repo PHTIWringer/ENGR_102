@@ -113,37 +113,12 @@ def z_score(x, mu, sigma):
     
     # Your code goes between this comment and the return
 
-     # Calculate the z-score of x
-    z_score_result = (x - mu) / sigma
-    
-    # Return the calculated z-score
-    return z_score_result
+def calculate_z_score(value, data):
+    mean_data = mean(population1)
+    std_dev_data = stdev(population1, mean_data)
+    z_score = (value - mean_data) / std_dev_data
+    return z_score # Place the calculated z-score result between the return statement and this comment so it will be returned by the z_score function
 
-def calculate_z_scores_for_dataset(dataset):
-    '''Calculate the mean and standard deviation of the dataset'''
-    mu = mean(dataset)
-    sigma = stdev(dataset, mu)
-    
-    # Initialize an empty list to store the z-scores
-    z_scores = []
-    
-    # Loop through each value in the dataset
-    for x in dataset:
-          z = z_score(x, mu, sigma)
-          z_scores.append(z)
-    
-    return z_scores
+z_score1 = calculate_z_score(population1[2], population1)
 
-# Calculate z-scores for population1
-z_scores_population1 = calculate_z_scores_for_dataset(population1)
-print("Z-scores for population1:", z_scores_population1)
-
-# Calculate z-scores for population2
-z_scores_population2 = calculate_z_scores_for_dataset(population2)
-print("Z-scores for population2:", z_scores_population2)
-
-# Calculate z-scores for population3
-z_scores_population3 = calculate_z_scores_for_dataset(population3)
-print("Z-scores for population3:", z_scores_population3)
-
- # Place the calculated z-score result between the return statement and this comment so it will be returned by the z_score function
+print("The z-score of the mean of population1 is", z_score1)
