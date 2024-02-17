@@ -112,13 +112,31 @@ def z_score(x, mu, sigma):
     # Participating group member names go in this comment: Kenneth Hileman
     
     # Your code goes between this comment and the return
+    z_score_value = (x - mu) / sigma
+    return z_score_value # Place the calculated z-score result between the return statement and this comment so it will be returned by the z_score function
 
-def calculate_z_score(value, data):
-    mean_data = mean(population1)
-    std_dev_data = stdev(population1, mean_data)
-    z_score = (value - mean_data) / std_dev_data
-    return z_score # Place the calculated z-score result between the return statement and this comment so it will be returned by the z_score function
+############ Calculate only one z-score from each population data sets [0] or [1] or [2] and so on ############################
 
-z_score1 = calculate_z_score(population1[2], population1)
+def calculate_z_score(data, population):
+    mean_data = mean(data)
+    std_dev_data = stdev(data, mean_data)
+    # change the [0] to any index from any of the lists to change z_score
+    z_score_index = z_score(data[0], mean_data, std_dev_data)
+    print(f"The z_score for the first item in {population} is, {z_score_index}")
 
-print("The z-score of the mean of population1 is", z_score1)
+calculate_z_score(population1, "population1")
+calculate_z_score(population2, "population2")
+calculate_z_score(population3, "population3")
+
+############ Auto Calculate all z-scores in a population data set (50 in population1, 50 in population2, and 28 in population3) ################
+
+def calculate_all_z_scores(data, population):
+    mean_data = mean(data)
+    std_dev_data = stdev(data, mean_data)
+    for index, value in enumerate(data):
+        z_score_value = z_score(value, mean_data, std_dev_data)
+        print(f"The z-score for index {index+1} in {population} is {z_score_value: .2f}")
+
+calculate_all_z_scores(population1, "population1")
+calculate_all_z_scores(population2, "population2")
+calculate_all_z_scores(population3, "population3")
