@@ -100,7 +100,18 @@ def test_z_score_function():
 # participated in the group assignment work           #
 #######################################################
 
-def z_score(x, mu, sigma):
+##### Calling the provided functions and assigning them to a variable #####
+
+pop1_avg = mean(population1)
+pop1_sd = stdev(population1, pop1_avg)
+
+pop2_avg = mean(population2)
+pop2_std = stdev(population2, pop2_avg)
+
+pop3_avg = mean(population3)
+pop3_std = stdev(population3, pop3_avg)
+
+def z_score(x, mu=None, sigma=None):
     """
     x is the population item
     mu is the population mean
@@ -112,33 +123,34 @@ def z_score(x, mu, sigma):
     # Participating group member names go in this comment: Kenneth Hileman
     
     # Your code goes between this comment and the return
+
+##### Assigning z_score arguments to the declared variables above #####
+    if mu is None:
+        mu = pop1_avg
+    if sigma is None:
+        sigma = pop1_sd
+        ## Z-Score Formula ##
     z_score_value = (x - mu) / sigma
     return z_score_value # Place the calculated z-score result between the return statement and this comment so it will be returned by the z_score function
 
-############ Calculate only one z-score from each population data sets [0] or [1] or [2] and so on ############################
+############ Calculate only one z-score from one population data set index [0] or [1] or [2] and so on ############################
 
-def calculate_z_score(data, population):
-    mean_data = mean(data)
-    std_dev_data = stdev(data, mean_data)
-    # change the [0] to any index from any of the lists to change z_score
-    z_score_index = z_score(data[0], mean_data, std_dev_data)
-
-    # Will have to change "first" to whatever index we select.  Ex: data[3], we would have to change "first" to "fourth"
-    print(f"The z_score for the first item in {population} is, {z_score_index}")
-
-calculate_z_score(population1, "population1")
-calculate_z_score(population2, "population2")
-calculate_z_score(population3, "population3")
+print(z_score(population1[0]))
 
 ############ Auto Calculate all z-scores in a population data set (50 in population1, 50 in population2, and 28 in population3) ################
 
 def calculate_all_z_scores(data, population):
+    ## Assigning Mean to a variable ##
     mean_data = mean(data)
+    ## Assigning Standard Deviation to a variable ##
     std_dev_data = stdev(data, mean_data)
+    ## Looping through entire data set ##
     for index, value in enumerate(data):
         z_score_value = z_score(value, mean_data, std_dev_data)
+        ## Printing z_score result by index number and population data set with only 2 decimal places ##
         print(f"The z-score for index {index+1} in {population} is {z_score_value: .2f}")
 
+## Calling the function ##
 calculate_all_z_scores(population1, "population1")
 calculate_all_z_scores(population2, "population2")
 calculate_all_z_scores(population3, "population3")
