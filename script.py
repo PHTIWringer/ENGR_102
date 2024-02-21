@@ -148,7 +148,7 @@ def calculate_all_z_scores(data, population):
     for index, value in enumerate(data):
         z_score_value = z_score(value, mean_data, std_dev_data)
         ## Printing z_score result by index number and population data set with only 2 decimal places ##
-        print(f"The z-score for index {index+1} in {population} is {z_score_value: .2f}")
+        print(f"The z-score for index {index+1} in {population} is {z_score_value: .8f}")
 
 ## Calling the function ##
 calculate_all_z_scores(population1, "population1")
