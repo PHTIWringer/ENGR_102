@@ -120,7 +120,7 @@ def z_score(x, mu=None, sigma=None):
     Returns the z-score of x
     """
     
-    # Participating group member names go in this comment: Kenneth Hileman
+    # Participating group member names go in this comment: Kenneth Hileman, Jonny Kuhn, Fox Caminiti
     
     # Your code goes between this comment and the return
 
